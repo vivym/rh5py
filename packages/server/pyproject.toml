@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=61.2", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rh5py-server"
+dynamic = ["version"]
+description = "Server for rh5py"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { file = "./LICENSE" }
+keywords = ["hdf5"]
+authors = [
+  { name = "Ming Yang", email = "ymviv@qq.com" },
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: Implementation :: CPython",
+]
+dependencies = [
+    "fastapi[standard]>=0.114.1",
+    "cachetools>=5.5.0",
+    "h5py>=3.11.0",
+    "blosc2>=2.7.1",
+    "pydantic",
+]
+
+[project.urls]
+Documentation = "https://github.com/vivym/rh5py#readme"
+Issues = "https://github.com/vivym/rh5py/issues"
+Source = "https://github.com/vivym/rh5py"
+
+[project.scripts]
+rh5py-server = "rh5py_server.__main__:main"
+
+[tool.setuptools.dynamic]
+version = {attr = "rh5py_server.__version__"}
